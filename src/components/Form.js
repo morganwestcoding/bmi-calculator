@@ -1,5 +1,6 @@
 import React from 'react';
 import TextInput from './TextInput.js';
+import '../styles/Form.css';
 
 class Form extends React.Component {
     render() {
