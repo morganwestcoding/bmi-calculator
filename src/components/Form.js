@@ -7,10 +7,10 @@ class Form extends React.Component {
         return(
         <div>
             <div className="row">
-                <TextInput />
+                <TextInput label="Height" placeholder="Enter height in meters" />
             </div>
             <div className="row">
-                <TextInput  />
+                <TextInput label="Weight" placeholder="Enter weight in kg" />
             </div>
         </div>
         )
