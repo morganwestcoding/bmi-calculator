@@ -26,21 +26,30 @@ class Form extends React.Component {
     this.setState({ height:  heightValue });
     }
 
-    computeBmi = () => {
-        let bmiValue = (this.state.weight / this.state.height) / this.state.height;
-        this.setState({ bmi: bmiValue });
-        let bmiClass = this.getBmi(bmiValue);
-        this.setState({ bmiClass: bmiClass });
+       computeBmi = () => {
+    const weight = parseFloat(this.state.weight);
+    const height = parseFloat(this.state.height);
+
+    if (isNaN(weight) || isNaN(height)) {
+        // Handle invalid input, display an error message or take appropriate action
+        return;
+    }
+
+    const bmiValue = (weight / height) / height;
+    this.setState({ bmi: bmiValue });
+
+    const bmiClass = this.getBmi(bmiValue);
+    this.setState({ bmiClass: bmiClass });
     }
 
         getBmi = (bmiValue) => {
         if(bmiValue < 18.5) {
         return "Underweight";
     }
-    if(bmiValue >= 18.5 && bmi < 24.9) {
+    if(bmiValue >= 18.5 && bmiValue < 24.9) {
         return "Normal weight";
     }
-    if(bmiValue >= 25 && bmi < 29.9) {
+    if(bmiValue >= 25 && bmiValue < 29.9) {
         return "Overweight";
     }
     if(bmiValue >= 30) {
